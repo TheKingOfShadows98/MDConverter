@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "express": "^4.18.2",
+    "jsdom": "^20.0.2",
+    "showdown": "^2.1.0"
+  }
+}
