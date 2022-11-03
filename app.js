@@ -39,16 +39,19 @@ async function start(){
                 // insert content in the template
                 let result = addTemplate(plainT , info);
                 // create html file
-                write(outpath , result);
+                write(outpath , result, file);
             });
         });
     });
 }
 
 // ADDING A HTML TEMPLATE
-function addTemplate(plainT , data){
+function addTemplate(plainT , data, name = ''){
+    let names = name.split('.');
+
     // create a JSDOM with a template
     let template = new jsdom.JSDOM(plainT);
+    template.window.document.getElementById('web-title').innerText = names[0];
     // insert data into html
     template.window.document.getElementById('body').innerHTML = data;
     // return html string structure
